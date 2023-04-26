@@ -1,0 +1,599 @@
+#root {
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+    margin-top: 2.5rem;
+}
+.logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+        animation: logo-spin infinite 20s linear;
+    }
+}
+
+.card {
+    padding: 2em;
+}
+
+.read-the-docs {
+    color: #888;
+}
+
+.title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    will-change: filter;
+    transition: filter 300ms;
+}
+
+.title:hover {
+    filter: drop-shadow(0 0 1.5rem green);
+}
+
+.app-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homepage {
+    width: 600px;
+}
+
+.homepage .welcome-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+  
+.homepage .user-class-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+}
+
+.homepage .user-class-buttons .user-class-button {
+    padding: 20px;
+    width: 125px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background-color: #e6e6e6;
+    color: #333;
+    transition: all 0.2s ease-in-out;
+}
+  
+.homepage .user-class-buttons .user-class-button:hover {
+    background-color: #ccc;
+}
+
+.teacher-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    width: 80%;
+}
+  
+.teacher-page .navigation-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 2rem;
+}
+  
+.teacher-page .navigation-buttons .nav-button {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    background-color: #424242;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    filter: drop-shadow(white 2px 2px)
+}
+
+.teacher-page .navigation-buttons .nav-button:hover {
+    background-color: #ffffff;
+    color: #424242;
+}
+  
+.teacher-page .list-sections {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 2rem;
+}
+  
+.teacher-page .list-sections .list-section {
+    width: 30%;
+    background-color: #424242;
+    border-radius: 5px;
+    margin: 2rem;
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    filter: drop-shadow(white 2px 2px)
+}
+
+.teacher-page .list-sections .list-section::-webkit-scrollbar {
+    width: 0.5rem;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.teacher-page .list-sections .list-section::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+  
+.teacher-page .list-sections .list-section .section-title {
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+}
+
+.teacher-page .list-sections .list-section .section-title .add-button {
+    background-color: red;
+    width: 36px;
+    border-radius: 25%;
+    position: fixed;
+    top: 16px;
+    right: 1.5rem;
+    cursor: pointer;
+}
+
+.teacher-page .list-sections .list-section .section-title .add-button:hover {
+    background-color: rgb(255, 41, 41);
+}
+
+.divider {
+    width: 100%;
+    border: #242424 solid 2px;
+    margin-bottom: 1rem;
+}
+  
+.teacher-page .list-sections .list-section .list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.teacher-page .list-sections .list-section .list > div {
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.teacher-page .list-sections .list-section .list > div:hover {
+    color: #ccc;
+}
+
+.graph-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    justify-self: center;
+}
+
+.graph-container .graph {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-radius: 5px;
+    padding: 10px;
+    width: fit-content;
+}
+  
+.graph-container .graph .bar {
+    width: 50px;
+    margin-right: 5px;
+    background-color: #4caf50;
+    transition: height 0.2s ease;
+    position: relative;
+    cursor: pointer;
+}
+  
+.graph-container .graph .bar:hover {
+    background-color: #388e3c;
+}
+  
+.graph-container .graph .bar.selected {
+    background-color: #e91e63;
+}
+  
+.graph-container .graph .bar.selected:hover {
+    background-color: #c2185b;
+}
+  
+.graph-container .graph .label {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: white;
+}
+
+.graph-container .students-list {
+    width: 100%;
+}
+
+.graph-container .students-list .student {
+    margin-bottom: 6px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background-color: #424242;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.lesson-page,
+.concept-page {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lesson-page .title-text,
+.concept-page .title-text {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+}
+
+.lesson-page .concept-title,
+.concept-page .concept-title {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+    text-align: center;
+    height: 2.3rem;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.lesson-page .date-text,
+.concept-page .date-text {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+}
+
+.lesson-page .concept-date,
+.concept-page .concept-date {
+    font-size: 1.5rem;
+    margin-bottom: 4rem;
+    font-family: "Gill Sans", sans-serif;
+    text-align: center;
+    height: 1.75rem;
+}
+
+.concept-page .explanation {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    padding: 2rem;
+    background-color: #424242;
+    border-radius: 1rem;;
+    width: 90%;
+}
+  
+.concept-page .explanation .edit-explanation-textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 1.25rem;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.concept-page .section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+.lesson-page .section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+}
+
+.lesson-page .section img {
+    width: 100%;
+    height: 100%;
+}
+
+.lesson-page .section .section-text,
+.concept-page .section .section-text {
+    font-size: 1.5rem;
+    width: 100%;
+}
+
+.lesson-page .section .section-text {
+    margin-bottom: 3rem;
+}
+
+.lesson-page .section .section-text .upload-notes {
+    background-color: #424242;
+    width: 36px;
+    border-radius: 25%;
+    position: fixed;
+    top: 30.25rem;
+    right: 21rem;
+    cursor: pointer;
+}
+
+.lesson-page .concepts-section-teacher {
+    width: 80%;
+}
+
+.concept-page .resources-section-teacher {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lesson-page .concepts-section {
+    width: 80%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.concept-page .resources-section {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lesson-page .concept, 
+.concept-page .resource-link {
+    display: block;
+    background-color: #424242;
+    border-radius: 10px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    color: #646cff;
+    font-weight: 500;
+}
+
+.lesson-page .concept:hover,
+.concept-page .resource-link:hover {
+    color: #2f39ff;
+}
+  
+.concept-page .feedback-section {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.resource-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+
+.resource-popup form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resource-popup label {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.resource-popup input,
+.resource-popup select {
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.resource-popup button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.resource-popup button:hover {
+    background-color: gray;
+}
+
+.form-help-groups {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.form-help-groups .buttons {
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 2rem;
+}
+
+.form-help-groups button {
+    margin-right: 10px;
+    background-color: #424242;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-help-groups button.active {
+    background-color: green;
+}
+
+.form-help-groups .time-period {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.form-help-groups .groups {
+    display: grid;
+    width: 600px;
+    grid-template-columns: repeat(auto-fit, 272px);
+    gap: 1rem;
+}
+
+.form-help-groups .group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #424242;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    width: 250px;
+}
+
+.form-help-groups .group .group-title{
+    justify-self: flex-start;
+    background-color: #424242;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.student-link {
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.student-link:hover {
+    color: #ccc;
+}
+
+.background-blur {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    backdrop-filter: blur(5px);
+}
+
+.existing-concept-popup {
+    position: fixed;
+    top: 28%;
+    left: 38%;
+    width: 20%;
+    height: 40%;
+    padding: 2%;
+    background-color: white;
+    color: black;
+    border: 2px black solid;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+  
+.existing-concept-popup .popup-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+  
+.existing-concept-popup .popup-inner {
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 5px;
+}
+  
+.existing-concept-popup .concept-option {
+    padding: 10px;
+    margin-bottom: 1rem;
+    background-color: #424242;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}
+  
+.existing-concept-popup .popup-list li button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+  
+.existing-concept-popup .popup-list li button:hover {
+    background-color: #2980b9;
+}

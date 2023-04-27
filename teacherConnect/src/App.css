@@ -597,3 +597,32 @@
 .existing-concept-popup .popup-list li button:hover {
     background-color: #2980b9;
 }
+
+.go-back-btn{
+    padding:0.3rem;
+    background-color:#E89137;
+    width:5vw;
+    position:absolute;
+    left:3rem;
+    margin-top:1rem;
+}
+.go-back-btn:hover{
+    background-color: #424242;
+    color:white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.tip{
+    position:absolute;
+    padding:0.4rem;
+    transition:opacity 0.4s ease;
+}
+
+.tip-hidden{
+    opacity:0;
+}
+
+.tip-active{
+    opacity:1;
+}

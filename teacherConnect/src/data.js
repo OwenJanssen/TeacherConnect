@@ -526,3 +526,18 @@ export let data = {
 export const setData = (newData) => {
     data = newData;
 }
+
+export const routeInfo ={
+    stack:[],
+    curr:undefined,
+    map:new Map(),
+    setCurrentRoute:function(data){
+        //data: route, name 
+        // console.log(this)
+        this.curr = data   
+        this.map.set(this.curr.route,true)
+    },
+    getLastRoute:function(){
+        return this.stack[this.stack.length-1].name
+    }
+}

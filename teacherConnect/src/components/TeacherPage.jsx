@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Title from './Title';
 import { useNavigate } from 'react-router-dom';
+import { SaveHistory } from '../helper';
+
 import StudentLink from './StudentLink';
+import {routeInfo} from "../data";
 
 function TeacherPage({ data, setData }) {
     const nav = useNavigate();
 
+    useEffect(()=>{
+        // console.log("setting current route")
+        routeInfo.setCurrentRoute({route:"/teacher",name:"Teacher's Home"})
+    },[])
     const addLesson = () => {
         setData(d => {
             let newD = d;
@@ -15,7 +22,7 @@ function TeacherPage({ data, setData }) {
             };
             return newD;
         });
-        nav(`/teacher/lesson/${data["Lessons"].length-1}`);
+        SaveHistory(nav,`/teacher/lesson/${data["Lessons"].length-1}`);
     }
 
     const addConcept = () => {
@@ -30,13 +37,14 @@ function TeacherPage({ data, setData }) {
             };
             return newD;
         });
-        nav(`/teacher/concept/${data["Concepts"].length-1}`);
+        SaveHistory(nav,`/teacher/concept/${data["Concepts"].length-1}`);
     }
 
     return <div className="teacher-page">
         <Title/>
         <div className="navigation-buttons">
-            <div className="nav-button" onClick={() => nav("/teacher/groups")}>
+            
+            <div className="nav-button" onClick={() => SaveHistory(nav,"/teacher/groups")}>
                 Form Help Groups
             </div>
         </div>
@@ -51,7 +59,7 @@ function TeacherPage({ data, setData }) {
                 <div className="divider"/>
                 <div className="list">
                     {data["Lessons"].map((lesson, i) => 
-                        <div key={i} onClick={() => nav(`/teacher/lesson/${i}`)}>
+                        <div key={i} onClick={() => SaveHistory(nav,`/teacher/lesson/${i}`)}>
                             {`${lesson["date"]}: ${lesson["title"]}`}
                         </div>
                     )}
@@ -67,7 +75,7 @@ function TeacherPage({ data, setData }) {
                 <div className="divider"/>
                 <div className="list">
                     {data["Concepts"].map((concept, i) => 
-                        <div key={i} onClick={() => nav(`/teacher/concept/${i}`)}>
+                        <div key={i} onClick={() => SaveHistory(nav,`/teacher/concept/${i}`)}>
                             {`${concept["date"]}: ${concept["title"]}`}
                         </div>
                     )}

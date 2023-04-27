@@ -1,22 +1,27 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import pencil_icon from '../assets/pencil_icon.svg';
+import { SaveHistory } from '../helper';
+import { routeInfo } from '../data';
 
 const Homepage = ({  }) => {
     const navigate = useNavigate();
-    
+    React.useEffect(()=>{
+        routeInfo.setCurrentRoute({name:"Home",route:"/"})
+    },[])
+
     const nextPage = (newUserClass) => {
         // navigate("/concept/0/student");
         // return;
         switch (newUserClass) {
             case 'TEACHER':
-              navigate('/teacher');
+              SaveHistory(navigate,'/teacher');
               break;
             case 'PARENT':
-                navigate('/parent');
+                SaveHistory(navigate,'/parent');
               break;
             case 'STUDENT':
-                navigate('/student');
+                SaveHistory(navigate,'/student');
               break;
             default:
               console.error(`Invalid user class: ${newUserClass}`);

@@ -1,16 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect  } from 'react';
 import Title from './Title';
 import { useNavigate, useParams } from 'react-router-dom';
+import { routeInfo } from '../data';
+import { SaveHistory } from '../helper';
 
 export const LessonPage = ({ data, setData }) => {
     const nav = useNavigate();
     const { lessonId, userClass } = useParams();
     const lesson = data["Lessons"][lessonId];
+    console.log("DEBUG, lesson is",lessonId)
     const isTeacher = userClass == "teacher";
     const [image, setImage] = useState("/whiteboard.png")
 
     const [popupOpen, setPopupOpen] = useState(false);
 
+    useEffect(()=>{
+        routeInfo.setCurrentRoute({
+            name:`${userClass} Lessons`,
+            route:`/${userClass}/lesson/${lessonId}`
+        })
+    },[])
     const handleTitleChange = (event) => {
         setData(d => {
             let newD = {...d};
@@ -65,7 +74,7 @@ export const LessonPage = ({ data, setData }) => {
                 <div className={isTeacher ? "concepts-section-teacher" : "concepts-section"}>            
                     {lesson["concepts"].map(concept_i => 
                         {
-                            return <div className="concept" key={concept_i} onClick={() => nav(`/teacher/concept/${concept_i}`)}>
+                            return <div className="concept" key={concept_i} onClick={() => SaveHistory(nav,`/teacher/concept/${concept_i}`)}>
                                 {data["Concepts"][concept_i]["title"]}
                             </div>
                         }

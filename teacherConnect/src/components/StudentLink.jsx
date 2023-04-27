@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom"
+import { SaveHistory } from "../helper";
 
 export const StudentLink = ({ userClass, studentName }) => {
     const nav = useNavigate();
 
     const goToStudent = () => {
-        nav(`/${userClass}/${studentName.toLowerCase().replace(/ /g, "-")}`);
+        SaveHistory(nav,`/${userClass}/${studentName.toLowerCase().replace(/ /g, "-")}`);
     }
 
     return <div className="student-link" onClick={goToStudent} key={studentName}>

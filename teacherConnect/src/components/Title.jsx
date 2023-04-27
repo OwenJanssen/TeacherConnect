@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
+import GoBackButton from './GoBackButton';
 
 const Title = () => {
     const nav = useNavigate();
@@ -8,7 +9,12 @@ const Title = () => {
         nav("/");
     };
 
-    return <div className="title" onClick={returnHome}>TeacherConnect</div>
+    return <>
+    <GoBackButton/>
+    <div className="title" onClick={returnHome}>TeacherConnect</div>
+    </>
+    
+    
 }
 
 export default Title;

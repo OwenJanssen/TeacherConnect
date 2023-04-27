@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Title from './Title';
 import StudentLink from './StudentLink';
+import { routeInfo } from '../data';
 
 const UnderstandingGraph = ({ feedback, userClass }) => {
     const [selected, setSelected] = useState(4);
@@ -49,6 +50,9 @@ function ConceptPage({ data, setData }) {
     const [resourceType, setResourceType] = useState("video");
     const [resourceLink, setResourceLink] = useState("");
 
+    useEffect(()=>{        
+        routeInfo.setCurrentRoute({name:"Concept Page",route:`${userClass}/concept/${conceptId}`})
+    },[])
     const addResource = () => {
         setShowAddResource(s => !s);
     };

@@ -134,7 +134,7 @@ function ConceptPage({ data, setData }) {
                 <div className={isTeacher ? "resources-section-teacher" : "resources-section"}>            
                     {concept["resources"].map((resource, i) => 
                         <a key={i} href={"https://" + resource["link"]} className="resource-link">
-                            {resource["type"] === "video" ? "🎥 " : resource["type"] === "problem" ? "📝 " : ""}
+                            {resource["type"] === "video" ? "🎥 " : resource["type"] === "problem" ? "📝 " : resource["type"] === "game" ? "🎮 ": ""}
                             {resource["name"]}
                         </a>
                     )}
@@ -154,6 +154,7 @@ function ConceptPage({ data, setData }) {
                                         <select value={resourceType} onChange={(e) => setResourceType(e.target.value)}>
                                             <option value="video">Video</option>
                                             <option value="problem">Problem</option>
+                                            <option value="game">Game</option>
                                         </select>
                                     </label>
                                     <label>

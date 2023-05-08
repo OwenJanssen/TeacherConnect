@@ -40,6 +40,14 @@ function TeacherPage({ data, setData }) {
         SaveHistory(nav,`/teacher/concept/${data["Concepts"].length-1}`);
     }
 
+    const duplicateConcept = () => {
+        return;
+    }
+
+    const duplicateLesson = () => {
+        return;
+    }
+
     return <div className="teacher-page">
         <Title/>
         <div className="navigation-buttons">
@@ -59,8 +67,13 @@ function TeacherPage({ data, setData }) {
                 <div className="divider"/>
                 <div className="list">
                     {data["Lessons"].map((lesson, i) => 
-                        <div key={i} onClick={() => SaveHistory(nav,`/teacher/lesson/${i}`)}>
-                            {`${lesson["date"]}: ${lesson["title"]}`}
+                        <div className="list-item">
+                            <div key={i} onClick={() => SaveHistory(nav,`/teacher/lesson/${i}`)}>
+                                {`${lesson["date"]}: ${lesson["title"]}`}
+                            </div>
+                            <div className="duplicate-button" onClick={duplicateLesson}>
+                                Duplicate
+                            </div>
                         </div>
                     )}
                 </div>
@@ -75,10 +88,15 @@ function TeacherPage({ data, setData }) {
                 <div className="divider"/>
                 <div className="list">
                     {data["Concepts"].map((concept, i) => 
-                        <div key={i} onClick={() => SaveHistory(nav,`/teacher/concept/${i}`)}>
-                            {`${concept["date"]}: ${concept["title"]}`}
+                        <div className="list-item">
+                            <div key={i} onClick={() => SaveHistory(nav,`/teacher/concept/${i}`)}>
+                                {`${concept["date"]}: ${concept["title"]}`}
+                            </div>
+                            <div className="duplicate-button" onClick={duplicateConcept}>
+                                Duplicate
+                            </div>
                         </div>
-                    )}
+                        )}
                 </div>
             </div>
             <div className="list-section">

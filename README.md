@@ -2,19 +2,7 @@
 
 **Add/view info for upcoming tests**
 
-**Teacher Page:**
+**Lesson Page:**
 
-- View student page
-
-**Student Page:**
-
-- Landing page
-  - Enter feedback from today's lesson
-  - View progress button
-- Current Progress
-  - Pi chart to select concepts
-  - Summary of concepts
-
-**Parent Page:**
-
-- Current progress (same as student page)
+- Teacher can enter problems for addressing student concept understanding
+- Student can answer from multiple choice options for question then use a slider to pick between 1 and 5 understanding

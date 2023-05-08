@@ -18,10 +18,10 @@ const Homepage = ({  }) => {
               SaveHistory(navigate,'/teacher');
               break;
             case 'PARENT':
-                SaveHistory(navigate,'/parent');
+                SaveHistory(navigate,'/parent/emma-smith');
               break;
             case 'STUDENT':
-                SaveHistory(navigate,'/student');
+                SaveHistory(navigate,'/student/emma-smith');
               break;
             default:
               console.error(`Invalid user class: ${newUserClass}`);

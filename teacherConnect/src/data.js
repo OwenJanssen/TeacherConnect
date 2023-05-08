@@ -43,6 +43,422 @@ export let data = {
     ],
     "Concepts": [
         {
+            "date": "5/7/2023",
+            "title": "Basic Statistics",
+            "explanation": "Statistics is a branch of mathematics concerned with collecting, analyzing, and interpreting data. It includes descriptive statistics which summarizes data using numerical and graphical methods, and inferential statistics which uses probability theory to make predictions and decisions based on data.",
+            "resources": [
+                {
+                    "name": "Introduction to Statistics",
+                    "type": "video",
+                    "link": "https://www.youtube.com/watch?v=hs4wDpLqWg4"
+                },
+                {
+                    "name": "Descriptive Statistics Examples",
+                    "type": "problem",
+                    "link": "https://www.youtube.com/watch?v=WTaFZ-R6zsw"
+                },
+                {
+                    "name": "Inferential Statistics Examples",
+                    "type": "problem",
+                    "link": "https://www.youtube.com/watch?v=Vf3pLX2z-l4"
+                }
+            ],
+            "feedback": [
+                {
+                    "name": "Emma Smith",
+                    "understanding": 4
+                },
+                {
+                    "name": "Oliver Taylor",
+                    "understanding": 2
+                },
+                {
+                    "name": "Avery Brown",
+                    "understanding": 3
+                },
+                {
+                    "name": "Ethan Green",
+                    "understanding": 1
+                },
+                {
+                    "name": "Chloe Davis",
+                    "understanding": 5
+                },
+                {
+                    "name": "Noah Lewis",
+                    "understanding": 3
+                },
+                {
+                    "name": "Lily Mitchell",
+                    "understanding": 2
+                },
+                {
+                    "name": "Lucas Wright",
+                    "understanding": 4
+                },
+                {
+                    "name": "Mia Turner",
+                    "understanding": 5
+                },
+                {
+                    "name": "Jacob Foster",
+                    "understanding": 3
+                },
+                {
+                    "name": "Sophia Ramirez",
+                    "understanding": 1
+                },
+                {
+                    "name": "William Butler",
+                    "understanding": 4
+                },
+                {
+                    "name": "Ava Watson",
+                    "understanding": 4
+                },
+                {
+                    "name": "Benjamin Coleman",
+                    "understanding": 3
+                },
+                {
+                    "name": "Madison Griffin",
+                    "understanding": 2
+                },
+                {
+                    "name": "Henry Ward",
+                    "understanding": 4
+                },
+                {
+                    "name": "Isabella Kim",
+                    "understanding": 5
+                },
+                {
+                    "name": "Jameson Rodriguez",
+                    "understanding": 3
+                },
+                {
+                    "name": "Charlotte Bell",
+                    "understanding": 2
+                },
+                {
+                    "name": "Andrew Powell",
+                    "understanding": 1
+                }
+            ]
+        },
+        {
+            "date": "5/6/2023",
+            "title": "The Pythagorean Theorem",
+            "explanation": "The Pythagorean Theorem states that in a right triangle, the square of the length of the hypotenuse is equal to the sum of the squares of the lengths of the other two sides.",
+            "resources": [
+                {
+                    "name": "Proof of the Pythagorean Theorem",
+                    "type": "video",
+                    "link": "youtube.com"
+                },
+                {
+                    "name": "Solving for the length of the hypotenuse",
+                    "type": "problem",
+                    "link": "youtube.com"
+                },
+                {
+                    "name": "Solving for the length of a leg",
+                    "type": "problem",
+                    "link": "youtube.com"
+                }
+            ],
+            "feedback": [
+                {
+                    "name": "Emma Smith",
+                    "understanding": 2
+                },
+                {
+                    "name": "Oliver Taylor",
+                    "understanding": 4
+                },
+                {
+                    "name": "Avery Brown",
+                    "understanding": 3
+                },
+                {
+                    "name": "Ethan Green",
+                    "understanding": 1
+                },
+                {
+                    "name": "Chloe Davis",
+                    "understanding": 5
+                },
+                {
+                    "name": "Noah Lewis",
+                    "understanding": 3
+                },
+                {
+                    "name": "Lily Mitchell",
+                    "understanding": 2
+                },
+                {
+                    "name": "Lucas Wright",
+                    "understanding": 4
+                },
+                {
+                    "name": "Mia Turner",
+                    "understanding": 5
+                },
+                {
+                    "name": "Jacob Foster",
+                    "understanding": 2
+                },
+                {
+                    "name": "Sophia Ramirez",
+                    "understanding": 1
+                },
+                {
+                    "name": "William Butler",
+                    "understanding": 5
+                },
+                {
+                    "name": "Ava Watson",
+                    "understanding": 4
+                },
+                {
+                    "name": "Benjamin Coleman",
+                    "understanding": 3
+                },
+                {
+                    "name": "Madison Griffin",
+                    "understanding": 2
+                },
+                {
+                    "name": "Henry Ward",
+                    "understanding": 4
+                },
+                {
+                    "name": "Isabella Kim",
+                    "understanding": 5
+                },
+                {
+                    "name": "Jameson Rodriguez",
+                    "understanding": 3
+                },
+                {
+                    "name": "Charlotte Bell",
+                    "understanding": 2
+                },
+                {
+                    "name": "Andrew Powell",
+                    "understanding": 1
+                }
+            ]            
+        },
+        {
+            "date": "5/4/2023",
+            "title": "Order of Operations",
+            "explanation": "Order of Operations is the rule that tells us which operation to perform first in an expression with more than one operation. The rule is PEMDAS (Parentheses, Exponents, Multiplication and Division, Addition and Subtraction).",
+            "resources": [
+                {
+                    "name": "Order of Operations video tutorial",
+                    "type": "video",
+                    "link": "youtube.com"
+                },
+                {
+                    "name": "Order of Operations practice problems",
+                    "type": "problem",
+                    "link": "khanacademy.org"
+                },
+                {
+                    "name": "Order of Operations interactive game",
+                    "type": "game",
+                    "link": "mathplayground.com"
+                }
+            ],
+            "feedback": [
+                {
+                    "name": "Emma Smith",
+                    "understanding": 5
+                },
+                {
+                    "name": "Oliver Taylor",
+                    "understanding": 3
+                },
+                {
+                    "name": "Avery Brown",
+                    "understanding": 2
+                },
+                {
+                    "name": "Ethan Green",
+                    "understanding": 1
+                },
+                {
+                    "name": "Chloe Davis",
+                    "understanding": 5
+                },
+                {
+                    "name": "Noah Lewis",
+                    "understanding": 3
+                },
+                {
+                    "name": "Lily Mitchell",
+                    "understanding": 2
+                },
+                {
+                    "name": "Lucas Wright",
+                    "understanding": 4
+                },
+                {
+                    "name": "Mia Turner",
+                    "understanding": 5
+                },
+                {
+                    "name": "Jacob Foster",
+                    "understanding": 3
+                },
+                {
+                    "name": "Sophia Ramirez",
+                    "understanding": 2
+                },
+                {
+                    "name": "William Butler",
+                    "understanding": 4
+                },
+                {
+                    "name": "Ava Watson",
+                    "understanding": 4
+                },
+                {
+                    "name": "Benjamin Coleman",
+                    "understanding": 3
+                },
+                {
+                    "name": "Madison Griffin",
+                    "understanding": 2
+                },
+                {
+                    "name": "Henry Ward",
+                    "understanding": 4
+                },
+                {
+                    "name": "Isabella Kim",
+                    "understanding": 5
+                },
+                {
+                    "name": "Jameson Rodriguez",
+                    "understanding": 3
+                },
+                {
+                    "name": "Charlotte Bell",
+                    "understanding": 2
+                },
+                {
+                    "name": "Andrew Powell",
+                    "understanding": 1
+                }
+            ]            
+        },
+        {
+            "date": "5/3/2023",
+            "title": "Simplifying expressions",
+            "explanation": "To simplify an expression, we must combine like terms. Like terms have the same variables and the same exponents.",
+            "resources": [
+                {
+                    "name": "How to simplify expressions",
+                    "type": "video",
+                    "link": "youtube.com"
+                },
+                {
+                    "name": "Simplifying expressions example 1",
+                    "type": "problem",
+                    "link": "youtube.com"
+                },
+                {
+                    "name": "Simplifying expressions example 2",
+                    "type": "problem",
+                    "link": "youtube.com"
+                }
+            ],
+            "feedback": [
+                {
+                    "name": "Emma Smith",
+                    "understanding": 4
+                },
+                {
+                    "name": "Oliver Taylor",
+                    "understanding": 2
+                },
+                {
+                    "name": "Avery Brown",
+                    "understanding": 3
+                },
+                {
+                    "name": "Ethan Green",
+                    "understanding": 1
+                },
+                {
+                    "name": "Chloe Davis",
+                    "understanding": 5
+                },
+                {
+                    "name": "Noah Lewis",
+                    "understanding": 3
+                },
+                {
+                    "name": "Lily Mitchell",
+                    "understanding": 2
+                },
+                {
+                    "name": "Lucas Wright",
+                    "understanding": 4
+                },
+                {
+                    "name": "Mia Turner",
+                    "understanding": 5
+                },
+                {
+                    "name": "Jacob Foster",
+                    "understanding": 2
+                },
+                {
+                    "name": "Sophia Ramirez",
+                    "understanding": 1
+                },
+                {
+                    "name": "William Butler",
+                    "understanding": 4
+                },
+                {
+                    "name": "Ava Watson",
+                    "understanding": 5
+                },
+                {
+                    "name": "Benjamin Coleman",
+                    "understanding": 3
+                },
+                {
+                    "name": "Madison Griffin",
+                    "understanding": 2
+                },
+                {
+                    "name": "Henry Ward",
+                    "understanding": 4
+                },
+                {
+                    "name": "Isabella Kim",
+                    "understanding": 5
+                },
+                {
+                    "name": "Jameson Rodriguez",
+                    "understanding": 3
+                },
+                {
+                    "name": "Charlotte Bell",
+                    "understanding": 2
+                },
+                {
+                    "name": "Andrew Powell",
+                    "understanding": 1
+                }
+            ]
+        },
+        {
             "date": "4/27/2023",
             "title": "Converting units",
             "explanation": "To convert between units, we must multiply by ratios of the units to get to our desired result.",
@@ -66,7 +482,7 @@ export let data = {
             "feedback": [
                 {
                     "name": "Emma Smith",
-                    "understanding": 3
+                    "understanding": 2
                 },
                 {
                     "name": "Oliver Taylor",
@@ -170,7 +586,7 @@ export let data = {
             "feedback": [
                 {
                     "name": "Emma Smith",
-                    "understanding": 3
+                    "understanding": 4
                 },
                 {
                     "name": "Oliver Taylor",
@@ -274,7 +690,7 @@ export let data = {
             "feedback": [
                 {
                     "name": "Emma Smith",
-                    "understanding": 3
+                    "understanding": 5
                 },
                 {
                     "name": "Oliver Taylor",
@@ -457,7 +873,7 @@ export let data = {
                     "understanding": 1
                 }
             ]
-        }
+        },
     ], 
     "Students": [
         {

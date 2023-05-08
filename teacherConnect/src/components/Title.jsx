@@ -10,11 +10,9 @@ const Title = () => {
     };
 
     return <>
-    <GoBackButton/>
-    <div className="title" onClick={returnHome}>TeacherConnect</div>
+        <GoBackButton/>
+        <div className="title" onClick={returnHome}>TeacherConnect</div>
     </>
-    
-    
 }
 
 export default Title;

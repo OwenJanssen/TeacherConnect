@@ -485,16 +485,18 @@
     display: flex;
     margin-bottom: 20px;
     margin-top: 2rem;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 .form-help-groups button {
-    margin-right: 10px;
     background-color: #424242;
     border: 1px solid black;
     border-radius: 5px;
     padding: 5px 10px;
     font-size: 16px;
     cursor: pointer;
+    width: 200px;
 }
 
 .form-help-groups button.active {
@@ -511,6 +513,7 @@
     width: 600px;
     grid-template-columns: repeat(auto-fit, 272px);
     gap: 1rem;
+    margin-right: 0;
 }
 
 .form-help-groups .group {

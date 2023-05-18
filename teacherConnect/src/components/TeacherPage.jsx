@@ -70,7 +70,7 @@ const ConceptMultiDropdown = ({ concepts }) => {
             ))}
         </div>
     );
-  };
+};
 
 function TeacherPage({ data, setData }) {
     const nav = useNavigate();

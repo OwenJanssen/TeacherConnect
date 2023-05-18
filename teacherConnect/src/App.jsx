@@ -23,7 +23,7 @@ function App() {
             <Routes>
                 <Route exact path="/" element={<Homepage/>} />
                 <Route exact path="/teacher" element={<TeacherPage data={stateData} setData={setStateData}/>} />
-                <Route exact path="/teacher/groups" element={<FormHelpGroups/>} />
+                <Route exact path="/teacher/groups" element={<FormHelpGroups data={data}/>} />
                 <Route exact path=":userClass/:studentName/landing-page" element={<StudentPage data={stateData}/>} />
                 <Route exact path=":userClass/:studentName" element={<StudentPage data={stateData}/>} />
                 <Route exact path=":userClass/concept/:conceptId/" element={<ConceptPage data={stateData} setData={setStateData}/>}/>

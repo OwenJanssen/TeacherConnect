@@ -2,19 +2,58 @@ import React, { useState } from 'react';
 import Title from './Title';
 import StudentLink from './StudentLink';
 
-const FormHelpGroups = ({  }) => {
-    const [groupByLesson, setGroupByLesson] = useState(true);
-    const today = new Date();
-    const twoWeeksAgo = new Date(today.getTime() - 14 * 24 * 60 * 60 * 1000); // 14 days ago
+const ConceptMultiDropdown = ({ concepts }) => {
+    const [selectedConcepts, setSelectedConcepts] = useState([concepts[0].title]);
 
-    const timePeriod = `Time Period: ${twoWeeksAgo.toLocaleDateString()} - ${today.toLocaleDateString()}`;
+    const handleConceptChange = (event) => {
+        const { value, checked } = event.target;
+        if (checked) {
+            setSelectedConcepts((prevSelectedConcepts) => [...prevSelectedConcepts, value]);
+        } else {
+            setSelectedConcepts((prevSelectedConcepts) => prevSelectedConcepts.filter((concept) => concept !== value));
+        }
+    };
 
-    const handleGroupByLesson = () => {
-        setGroupByLesson(true);
+    return (
+        <div style={{marginBottom: "1rem"}}>
+            <label>Select Concepts:</label>
+            {concepts.map((concept, index) => (
+                <div key={index}>
+                <input
+                    type="checkbox"
+                    id={`concept-checkbox-${index}`}
+                    value={concept.title}
+                    checked={selectedConcepts.includes(concept.title)}
+                    onChange={handleConceptChange}
+                />
+                    <label htmlFor={`concept-checkbox-${index}`}>{concept.title}</label>
+                </div>
+            ))}
+        </div>
+    );
+};
+
+const FormHelpGroups = ({ data }) => {
+    const [balancedGroups, setBalancedGroups] = useState(true);
+    const [numGroups, setNumGroups] = useState(1);
+    const [groupSize, setGroupSize] = useState(1);
+
+    const handleBalancedGroups = () => {
+        setBalancedGroups(true);
     };
 
     const handleGroupByConcept = () => {
-        setGroupByLesson(false);
+        setBalancedGroups(false);
+    };
+
+    const handleNumGroupsChange = (event) => {
+        const value = parseInt(event.target.value, 10);
+        setNumGroups(value);
+    };
+
+    const handleGroupSizeChange = (event) => {
+        const value = parseInt(event.target.value, 10);
+        setGroupSize(value);
     };
 
     const groups = {
@@ -164,21 +203,38 @@ const FormHelpGroups = ({  }) => {
         <Title/>
         <div className="buttons">
             <button
-                className={`group-by-lesson${groupByLesson ? ' active' : ''}`}
-                onClick={handleGroupByLesson}
+                className={`group-by-lesson${balancedGroups ? ' active' : ''}`}
+                onClick={handleBalancedGroups}
             >
-                Group by Lesson Confusion
+                Make Balanced Groups
             </button>
             <button
-                className={`group-by-concept${!groupByLesson ? ' active' : ''}`}
+                className={`group-by-concept${!balancedGroups ? ' active' : ''}`}
                 onClick={handleGroupByConcept}
             >
-                Group by Concept Confusion
+                Group By Concept
             </button>
         </div>
-        <div className="time-period">{timePeriod}</div>
+
+        {!balancedGroups && <ConceptMultiDropdown concepts={data.Concepts}/>}
+        <div style={{display: "flex", flexDirection: "row", width: "80%", justifyContent: "space-evenly", marginBottom: "1rem"}}>
+            <div style={{width: 200}}>
+                <label htmlFor="num-groups">Number of Groups: </label>
+                <select id="num-groups" value={numGroups} onChange={handleNumGroupsChange}>
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => <option key={num} value={`${num}`}>{num}</option>)}
+                </select>
+            </div>
+
+            <div style={{width: 200}}>
+                <label htmlFor="group-size">Group Size: </label>
+                <select id="group-size" value={groupSize} onChange={handleGroupSizeChange}>
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => <option key={num} value={`${num}`}>{num}</option>)}
+                </select>
+            </div>
+        </div>
+      
         <div className="groups">
-            {groups[groupByLesson ? "Lessons" : "Concepts"].map((group, index) => (
+            {groups[balancedGroups ? "Lessons" : "Concepts"].map((group, index) => (
             <div key={index} className="group">
                 <div className="group-title">{group["Name"]}</div>
                 <div className="students">

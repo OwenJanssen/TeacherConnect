@@ -413,6 +413,12 @@
     font-weight: 500;
 }
 
+.lesson-page .concept {
+    flex: 1;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 .lesson-page .concept:hover,
 .concept-page .resource-link:hover {
     color: #2f39ff;

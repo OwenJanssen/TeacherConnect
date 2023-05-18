@@ -35,8 +35,8 @@ const ConceptMultiDropdown = ({ concepts }) => {
 
 const FormHelpGroups = ({ data }) => {
     const [balancedGroups, setBalancedGroups] = useState(true);
-    const [numGroups, setNumGroups] = useState(1);
-    const [groupSize, setGroupSize] = useState(1);
+    const [numGroups, setNumGroups] = useState(4);
+    const [groupSize, setGroupSize] = useState(4);
 
     const handleBalancedGroups = () => {
         setBalancedGroups(true);
@@ -236,7 +236,7 @@ const FormHelpGroups = ({ data }) => {
         <div className="groups">
             {groups[balancedGroups ? "Lessons" : "Concepts"].map((group, index) => (
             <div key={index} className="group">
-                <div className="group-title">{group["Name"]}</div>
+                <div className="group-title">{`Group ${index+1}`}</div>
                 <div className="students">
                     {group["Students"].map(s => <StudentLink userClass="teacher" studentName={s}/>)}
                 </div>

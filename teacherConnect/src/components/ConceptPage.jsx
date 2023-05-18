@@ -4,11 +4,11 @@ import Title from './Title';
 import StudentLink from './StudentLink';
 import { routeInfo } from '../data';
 
-const UnderstandingGraph = ({ feedback, userClass }) => {
+const UnderstandingGraph = ({ feedback, userClass, understanding }) => {
     const [selected, setSelected] = useState(4);
     const understandingLevels = Array.from({ length: 5 }, (_, i) => i + 1);
     const understandingCounts = understandingLevels.map(level =>
-        feedback.filter(student => student.understanding === level).length
+        feedback.filter(student => student[understanding] === level).length
     );
     
     const handleClick = (index) => {
@@ -30,8 +30,8 @@ const UnderstandingGraph = ({ feedback, userClass }) => {
         </div>
         {selected !== null && (
             <div className="students-list">
-                {feedback.filter(student => student.understanding === understandingLevels[selected]).map((student, index) => (
-                    <div className="student">
+                {feedback.filter(student => student[understanding] === understandingLevels[selected]).map((student, index) => (
+                    <div className="student" key={index}>
                         <StudentLink userClass={userClass} studentName={student.name}/>
                     </div>
                 ))}
@@ -172,12 +172,20 @@ function ConceptPage({ data, setData }) {
                 </div>
             </div>
             
-            {(isTeacher && concept["feedback"].length>0) &&<div className="section">
-                <div className="section-text">Feedback</div>
-                <div className="feedback-section">
-                    <UnderstandingGraph feedback={concept["feedback"]} userClass={userClass}/>
+            {(isTeacher && concept["feedback"].length>0) && <>
+                <div className="section"> 
+                    <div className="section-text">Self Evaluation</div>
+                    <div className="feedback-section">
+                        <UnderstandingGraph feedback={concept["feedback"]} userClass={userClass} understanding={"self-understanding"}/>
+                    </div>
                 </div>
-            </div>}
+                <div className="section">
+                    <div className="section-text">Test Results</div>
+                    <div className="feedback-section">
+                        <UnderstandingGraph feedback={concept["feedback"]} userClass={userClass} understanding={"test-understanding"}/>
+                    </div>
+                </div>
+            </>}
         </div>
     </div>
 }

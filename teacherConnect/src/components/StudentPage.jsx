@@ -17,13 +17,13 @@ function convertName(name) {
     return result;
 }
 
-const UnderstandingGraph = ({ concepts, name, userClass }) => {
+const UnderstandingGraph = ({ concepts, name, userClass, understanding }) => {
     const nav = useNavigate();
     const [selected, setSelected] = useState(4);
     const understandingLevels = Array.from({ length: 5 }, (_, i) => i + 1);
     const understandingCounts = understandingLevels.map(level =>
         concepts.filter(concept => 
-            concept.feedback.filter(f => f.name==name)[0].understanding === level).length
+            concept.feedback.filter(f => f.name==name)[0][understanding] === level).length
     );
     
     const handleClick = (index) => {
@@ -50,7 +50,7 @@ const UnderstandingGraph = ({ concepts, name, userClass }) => {
         {selected !== null && (
             <div className="students-list">
                 {concepts.filter(concept => 
-                    concept.feedback.filter(f => f.name==name)[0].understanding === understandingLevels[selected])
+                    concept.feedback.filter(f => f.name==name)[0][understanding] === understandingLevels[selected])
                         .map((concept, index) => (
                             <div key={index} className="concept-link" onClick={()=>goToConcept(index)}>
                                 {concept.date}: {concept.title}
@@ -66,6 +66,7 @@ const UnderstandingGraph = ({ concepts, name, userClass }) => {
 function StudentPage({ data }) {
     const { userClass, studentName } = useParams();
     const name = convertName(studentName);
+    const nav = useNavigate();
 
     useEffect(()=>{
         routeInfo.setCurrentRoute({route:`/${userClass}/${studentName}`,name:`${name}'s Home`})
@@ -75,13 +76,38 @@ function StudentPage({ data }) {
         SaveHistory(nav,`/student/lesson/0`);
     };
 
+    const openEmail = () => {
+
+    }
+
     return <div className="student-page">
         <Title/>
         <div className="student-name">{name}</div>
         {userClass == "student" && 
             <div className="view-latest-lesson-button" onClick={goToLatestLesson}>View Latest Lesson</div>
         }
-        <UnderstandingGraph concepts={data.Concepts} name={name} userClass={userClass}/>
+        {userClass == "parent" && 
+            <a href="https://gmail.com">
+                <div className="view-latest-lesson-button">Email Teacher</div>
+            </a>
+        }
+        {userClass == "teacher" && 
+            <div className="view-latest-lesson-button" onClick={openEmail}>Email Parent</div>
+        }
+        <div style={{display: "flex", flexDirection: "row"}}>
+            <div className="section">
+                <div className="feedback-section">
+                    <UnderstandingGraph concepts={data.Concepts} name={name} userClass={userClass} understanding={"self-understanding"}/>
+                </div>
+                <div className="section-text" style={{marginTop: "2rem"}}>Self Evaluation</div>
+            </div>
+            <div className="section">
+                <div className="feedback-section">
+                    <UnderstandingGraph concepts={data.Concepts} name={name} userClass={userClass} understanding={"test-understanding"}/>
+                </div>
+                <div className="section-text" style={{marginTop: "2rem"}}>Test Results</div>
+            </div>  
+        </div>
     </div>
 }
 

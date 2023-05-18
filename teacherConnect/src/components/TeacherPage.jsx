@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Modal from 'react-modal';
 import Title from './Title';
 import { useNavigate } from 'react-router-dom';
 import { SaveHistory } from '../helper';
@@ -6,8 +7,75 @@ import { SaveHistory } from '../helper';
 import StudentLink from './StudentLink';
 import {routeInfo} from "../data";
 
+// Set the modal styles
+const modalStyles = {
+    content: {
+        width: '300px',
+        height: '600px',
+        paddingLeft: '100px',
+        paddingRight: '100px',
+        margin: 'auto',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        backgroundColor: 'grey',
+        borderRadius: '50px'
+    },
+};
+
+const ConceptDropdown = ({ concepts }) => {
+    const handleConceptChange = (event) => {
+        const selectedConcept = event.target.value;
+    };
+
+    return <div>
+        <label htmlFor="concept-dropdown">Select a Concept:</label>
+        <select id="concept-dropdown" onChange={handleConceptChange}>
+        <option value="">Select...</option>
+        {concepts.map((concept, index) => (
+            <option key={index} value={concept.title}>
+                {concept.title}
+            </option>
+        ))}
+        </select>
+    </div>
+}
+
+const ConceptMultiDropdown = ({ concepts }) => {
+    const [selectedConcepts, setSelectedConcepts] = useState([]);
+
+    const handleConceptChange = (event) => {
+        const { value, checked } = event.target;
+        if (checked) {
+            setSelectedConcepts((prevSelectedConcepts) => [...prevSelectedConcepts, value]);
+        } else {
+            setSelectedConcepts((prevSelectedConcepts) => prevSelectedConcepts.filter((concept) => concept !== value));
+        }
+    };
+
+    return (
+        <div style={{marginBottom: "1rem"}}>
+            <label>Select Concepts:</label>
+            {concepts.map((concept, index) => (
+                <div key={index}>
+                <input
+                    type="checkbox"
+                    id={`concept-checkbox-${index}`}
+                    value={concept.title}
+                    checked={selectedConcepts.includes(concept.title)}
+                    onChange={handleConceptChange}
+                />
+                    <label htmlFor={`concept-checkbox-${index}`}>{concept.title}</label>
+                </div>
+            ))}
+        </div>
+    );
+  };
+
 function TeacherPage({ data, setData }) {
     const nav = useNavigate();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [gradingType, setGradingType] = useState(0);
 
     useEffect(()=>{
         // console.log("setting current route")
@@ -48,12 +116,31 @@ function TeacherPage({ data, setData }) {
         return;
     }
 
+    const handleUploadTest = () => {
+        setIsModalOpen(true);
+    };
+    
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+    
+    const handleIndividualGrades = () => {
+        setGradingType(0);
+    };
+    
+    const handleSingleGrade = () => {
+        setGradingType(1);
+    };
+
     return <div className="teacher-page">
         <Title/>
         <div className="navigation-buttons">
             
             <div className="nav-button" onClick={() => SaveHistory(nav,"/teacher/groups")}>
                 Form Help Groups
+            </div>
+            <div className="nav-button" onClick={handleUploadTest}>
+                Upload Test Results
             </div>
         </div>
         <div className="list-sections">
@@ -106,6 +193,39 @@ function TeacherPage({ data, setData }) {
                     {data["Students"].map(student => <StudentLink userClass="teacher" studentName={student["name"]} key={student["name"]}/>)}
                 </div>
             </div>
+
+            {/* Modal */}
+            <Modal isOpen={isModalOpen} onRequestClose={closeModal} style={modalStyles}>
+                <h2 style={{justifySelf: "flex-start"}}>Upload Test Results</h2>
+                <button>Upload</button>
+                <p style={{marginBottom: "-10px"}}>Please select the type of grading:</p>
+                <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
+                    <button onClick={handleIndividualGrades} style={{backgroundColor: gradingType==0?"green":"", width: 100, margin: 20}}>Individual Question Grades</button>
+                    <button onClick={handleSingleGrade} style={{backgroundColor: gradingType==1?"green":"", width: 100, margin: 20}}>Single Test Grade</button>
+                </div>
+                {gradingType==0 ? 
+                    <div>
+                        <div className="question-section">
+                            Question 1.
+                            <ConceptDropdown concepts={data.Concepts}/>
+                        </div>
+                        <div className="question-section">
+                            Question 2.
+                            <ConceptDropdown concepts={data.Concepts}/>
+                        </div>
+                        <div className="question-section">
+                            Question 3.
+                            <ConceptDropdown concepts={data.Concepts}/>
+                        </div>
+                        <div className="question-section">
+                            Question 4.
+                            <ConceptDropdown concepts={data.Concepts}/>
+                        </div>
+                    </div> : 
+                    <ConceptMultiDropdown concepts={data.Concepts}/>
+                }
+                <button onClick={closeModal}>Done</button>
+            </Modal>
         </div>
     </div>
 }

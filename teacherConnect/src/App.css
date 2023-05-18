@@ -214,6 +214,7 @@
     align-items: center;
     justify-content: space-between;
     justify-self: center;
+    height: 100%;
 }
 
 .graph-container .graph {
@@ -223,6 +224,7 @@
     border-radius: 5px;
     padding: 10px;
     width: fit-content;
+    height: 100%;
 }
   
 .graph-container .graph .bar {
@@ -270,7 +272,7 @@
 
 .lesson-page,
 .concept-page {
-    width: 1000px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
     display: flex;
@@ -327,6 +329,7 @@
     font-family: "Gill Sans", sans-serif;
 }
 
+.student-page .section,
 .concept-page .section {
     width: 100%;
     display: flex;
@@ -347,6 +350,7 @@
     height: 100%;
 }
 
+.student-page .section .section-text,
 .lesson-page .section .section-text,
 .concept-page .section .section-text {
     font-size: 1.5rem;
@@ -413,8 +417,8 @@
 .concept-page .resource-link:hover {
     color: #2f39ff;
 }
-  
-.concept-page .feedback-section {
+
+.feedback-section {
     width: 100%;
     height: 300px;
     display: flex;
@@ -660,4 +664,14 @@
   
 .student-page .view-latest-lesson-button:hover {
     background-color: #388e3c;
+}
+
+.question-section {
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a1a;
+    margin-bottom: 1rem;
+    padding: 8px;
+    border-radius: 8px;
 }
